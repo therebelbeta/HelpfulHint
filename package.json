@@ -1,0 +1,46 @@
+{
+  "name": "babyhint",
+  "version": "0.0.1",
+  "description": "BabyHint does a line-by-line check for common beginner programming mistakes, such as misspelling, missing spaces, missing commas, etc. It is used in conjunction with JSHINT to report errors to the user.",
+  "main": "dist/babyhint.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/semistandard/bin/cmd.js && ./node_modules/istanbul/lib/cli.js cover _mocha --"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/therebelrobot/BabyHint.git"
+  },
+  "keywords": [
+    "hint",
+    "lint",
+    "jslint",
+    "jshint",
+    "baby",
+    "babyhint",
+    "beginner",
+    "learn",
+    "check",
+    "khan",
+    "academy",
+    "school",
+    "cs"
+  ],
+  "author": "John Resig <jeresig@gmail.com> (http://ejohn.org/)",
+  "contributors": [
+    "Trent Oswald <trentoswald@therebelrobot.com> (http://therebelrobot.com)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/therebelrobot/BabyHint/issues"
+  },
+  "homepage": "https://github.com/therebelrobot/BabyHint",
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "istanbul": "^0.3.13",
+    "mocha": "^2.2.3",
+    "semistandard": "^4.0.3"
+  }
+}
