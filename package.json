@@ -42,5 +42,18 @@
     "istanbul": "^0.3.13",
     "mocha": "^2.2.3",
     "semistandard": "^4.0.3"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "colors": "^1.0.3",
+    "commander": "^2.7.1",
+    "event-stream": "^3.3.0",
+    "glob": "^5.0.3",
+    "gulp-util": "^3.0.4",
+    "jshint": "^2.6.3",
+    "lodash": "^3.6.0",
+    "minimist": "^1.1.1",
+    "split": "^0.3.3",
+    "through2": "^0.6.3"
   }
 }
