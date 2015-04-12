@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/semistandard/bin/cmd.js && ./node_modules/istanbul/lib/cli.js cover _mocha --"
+    "test": "./node_modules/standard/bin/cmd.js && ./node_modules/istanbul/lib/cli.js cover _mocha --"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,10 @@
     "chai": "^2.2.0",
     "istanbul": "^0.3.13",
     "mocha": "^2.2.3",
-    "semistandard": "^4.0.3"
+    "standard": "^3.5.0"
+  },
+  "dependencies": {
+    "interpolate": "^0.1.0",
+    "lodash": "^3.6.0"
   }
 }
