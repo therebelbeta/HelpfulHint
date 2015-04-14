@@ -150,9 +150,7 @@ var BabyHint = {
   inComment: false,
   spellChecked: false,
 
-  init: _init,
-
-  initDocumentation: _initDocumentation,
+  // initDocumentation: _initDocumentation,
 
   babyErrors: _babyErrors,
 
@@ -185,36 +183,36 @@ module.exports = BabyHint
 
 // Internal Function calls
 
-function _init (options) {
-  // grab globals from Processing object
-  for (var f in options.context) {
-    if (typeof options.context[f] === 'function') {
-      BabyHint.keywords.push(f)
-      if (!(f in BabyHint.functionParamCount) &&
-        !_.include(BabyHint.functionParamBlacklist, f)) {
-        BabyHint.functionParamCount[f] = options.context[f].length
-      }
-    }
-  }
-}
+// function _init (options) {
+//   // grab globals from Processing object
+//   for (var f in options.context) {
+//     if (typeof options.context[f] === 'function') {
+//       BabyHint.keywords.push(f)
+//       if (!(f in BabyHint.functionParamCount) &&
+//         !_.include(BabyHint.functionParamBlacklist, f)) {
+//         BabyHint.functionParamCount[f] = options.context[f].length
+//       }
+//     }
+//   }
+// }
 
-function _initDocumentation (docTitles) {
-  for (var i = 0; i < docTitles.length; i++) {
-    var usage = docTitles[i]
+// function _initDocumentation (docTitles) {
+//   for (var i = 0; i < docTitles.length; i++) {
+//     var usage = docTitles[i]
 
-    // kind of hacky, but many documentation titles don't take the form name(...) ...
-    // so we grab which ones we can. and rely on the intial value of
-    // the functionFormSuggestion map for any others we want to
-    // support rest of them
-    var firstParen = usage.indexOf('(')
+//     // kind of hacky, but many documentation titles don't take the form name(...) ...
+//     // so we grab which ones we can. and rely on the intial value of
+//     // the functionFormSuggestion map for any others we want to
+//     // support rest of them
+//     var firstParen = usage.indexOf('(')
 
-    var name = usage
-    if (firstParen >= 0) {
-      name = name.substring(0, firstParen).trim()
-      BabyHint.functionFormSuggestion[name] = usage
-    }
-  }
-}
+//     var name = usage
+//     if (firstParen >= 0) {
+//       name = name.substring(0, firstParen).trim()
+//       BabyHint.functionFormSuggestion[name] = usage
+//     }
+//   }
+// }
 
 function _babyErrors (source, hintErrors) {
   var errorLines = {}
