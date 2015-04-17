@@ -60,7 +60,7 @@ if(program.config){
 
 }
 debug('filepath',filepath)
-gulp.src('../test/fixtures/sample.js')
+vinyl.src('../test/fixtures/sample.js')
   .pipe(_helpfulHint())
   .pipe(jshint())
   .pipe(_helpfulHint())
