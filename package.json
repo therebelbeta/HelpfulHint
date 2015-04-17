@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "commander": "^2.8.0",
+    "debug-log2": "^1.0.0",
     "gulp-jshint": "^1.10.0",
     "interpolate": "^0.1.0",
     "jshint": "^2.7.0",

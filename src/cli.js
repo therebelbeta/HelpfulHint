@@ -1,12 +1,13 @@
 #! /usr/bin/env node
 
 var vinyl = require('vinyl-fs')
+var gulp = require('gulp')
 var jshint = require('gulp-jshint')
 var program = require('commander')
-var debug = require('./debug')
-var colors = require('colors')
+var debug = require('debug-log2')
 var path = require('path')
 var through = require('through2')
+var processComplete = false
 
 function _retrieveLib (libname) {
   debug('Custom Library', libname)
@@ -59,10 +60,14 @@ if(program.config){
 
 }
 debug('filepath',filepath)
-vinyl.src('../test/fixtures/sample.js')
+gulp.src('../test/fixtures/sample.js')
   .pipe(_helpfulHint())
   .pipe(jshint())
   .pipe(_helpfulHint())
+  .on('end', function(){
+    debug('done')
+    processComplete = true
+  })
 
 function _helpfulHint(opts){
   debug('helpfulhint')
@@ -88,3 +93,13 @@ function _hhBuffer(chunk, enc, cb){
 function _hhEnd(cb){
   return cb()
 }
+
+// function _wait () { // Prevent node from exiting before vinyl-fs is complete.
+//   if (!processComplete) {
+//     debug('waiting')
+//     setTimeout(_wait, 1000);
+//     return
+//   }
+//   debug('done!!!')
+// };
+// _wait();
