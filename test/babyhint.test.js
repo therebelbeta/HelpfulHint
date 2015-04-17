@@ -1,18 +1,23 @@
 var expect = require('chai').expect
 var fs = require('fs')
-var BabyHint = require('../src/babyhint')
-var fixtures
+var BabyHint = require('../src/helpfulhint')
+var debug = require('../src/debug')
+
+// var fixtures
 /* Definitions for JS Standard */
 /* global describe, it, beforeEach*/
 
-describe('BabyHint', _describe.BabyHint)
-function _beforeEachFixtures (done){
-  fs.readdir('./fixtures', function _afterFixturesReaddir(err, files){
-
+function _beforeEachFixtures (done) {
+  debug('beforeeach')
+  fs.readdir('./fixtures', function _afterFixturesReaddir (err, files) {
+    if (err) throw new Error(err)
+    console.log(files)
+    // fixtures = files
   })
 }
 var _describe = {
   babyHint: function _describeBabyHint () {
+    debug('Entering tests')
     beforeEach(_beforeEachFixtures)
     it('should get an object', _test.object)
     describe('babyErrors', _describe.babyError)
@@ -23,21 +28,23 @@ var _describe = {
   }
 }
 var _test = {
-  object:function _testObject (done) {
+  object: function _testObject (done) {
     console.log(BabyHint)
     expect(BabyHint).to.be.an('object')
     done()
   },
-  babyError:{
-    positive:function _testBabyErrorPositive (done) {
+  babyError: {
+    positive: function _testBabyErrorPositive (done) {
       console.log(BabyHint)
       expect(BabyHint).to.be.an('object')
       done()
     },
-    negative:function _testBabyErrorNegative (done) {
+    negative: function _testBabyErrorNegative (done) {
       console.log(BabyHint)
       expect(BabyHint).to.be.an('object')
       done()
     }
   }
 }
+debug('running tests')
+describe('BabyHint', _describe.BabyHint)
