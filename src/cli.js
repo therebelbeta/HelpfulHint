@@ -1,12 +1,28 @@
 #! /usr/bin/env node
 
+// Copyright (c) 2015 Trent Oswald <trentoswald@therebelrobot.com
+
+// Permission to use, copy, modify, and/or distribute this software for any
+// purpose with or without fee is hereby granted, provided that the above
+// copyright notice and this permission notice appear in all copies.
+
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+// SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+// IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+"use strict"
+
 var vinyl = require('vinyl-fs')
 var gulp = require('gulp')
+var fs = require('fs')
 var jshint = require('gulp-jshint')
 var program = require('commander')
 var debug = require('debug-log2')
 var path = require('path')
-var through = require('through2')
+var helpfulHint = require('./helpfulVinyl')
 var processComplete = false
 
 function _retrieveLib (libname) {
@@ -60,46 +76,12 @@ if(program.config){
 
 }
 debug('filepath',filepath)
-vinyl.src('../test/fixtures/sample.js')
-  .pipe(_helpfulHint())
+vinyl.src(path.resolve(process.cwd(), program.args[0]))
   .pipe(jshint())
-  .pipe(_helpfulHint())
-  .on('end', function(){
-    debug('done')
+  .pipe(helpfulHint())
+  .on('end', function(err, chunk){
+    debug('done', err, chunk)
     processComplete = true
   })
 
-function _helpfulHint(opts){
-  debug('helpfulhint')
-  return through.obj(_hhBuffer, _hhEnd)
-}
-function _hhBuffer(chunk, enc, cb){
-  debug(chunk, enc, cb)
-  if (chunk.isNull()) {
-    this.push(chunk);
-    return cb(null, chunk);
-  }
 
-  if (chunk.isStream()) {
-    this.emit("error", "cannot accept streams");
-    return cb(null, chunk);
-  }
-  if (chunk.isBuffer()) {
-    chunk.contents = new Buffer(String(chunk.contents) + "\n test");
-    this.push(chunk);
-  }
-  return cb(null, chunk);
-}
-function _hhEnd(cb){
-  return cb()
-}
-
-// function _wait () { // Prevent node from exiting before vinyl-fs is complete.
-//   if (!processComplete) {
-//     debug('waiting')
-//     setTimeout(_wait, 1000);
-//     return
-//   }
-//   debug('done!!!')
-// };
-// _wait();

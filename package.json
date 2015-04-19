@@ -1,8 +1,9 @@
 {
-  "name": "babyhint",
+  "name": "helpfulhint",
   "version": "0.0.1",
-  "description": "BabyHint does a line-by-line check for common beginner programming mistakes, such as misspelling, missing spaces, missing commas, etc. It is used in conjunction with JSHINT to report errors to the user.",
-  "main": "dist/babyhint.js",
+  "description": "HelpfulHint does a line-by-line check for common beginner programming mistakes, such as misspelling, missing spaces, missing commas, etc. It is used in conjunction with JSHINT to report errors to the user.",
+  "main": "dist/helpfulhint.js",
+  "bin": "dist/cli.js",
   "directories": {
     "test": "test"
   },
@@ -11,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/therebelrobot/BabyHint.git"
+    "url": "https://github.com/therebelrobot/HelpfulHint.git"
   },
   "keywords": [
     "hint",
@@ -19,7 +20,7 @@
     "jslint",
     "jshint",
     "baby",
-    "babyhint",
+    "helpfulhint",
     "beginner",
     "learn",
     "check",
@@ -28,15 +29,15 @@
     "school",
     "cs"
   ],
-  "author": "John Resig <jeresig@gmail.com> (http://ejohn.org/)",
+  "author": "Trent Oswald <trentoswald@therebelrobot.com> (http://therebelrobot.com)",
   "contributors": [
-    "Trent Oswald <trentoswald@therebelrobot.com> (http://therebelrobot.com)"
+    "John Resig <jeresig@gmail.com> (http://ejohn.org/) (From Kahn/live-editor)"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/therebelrobot/BabyHint/issues"
+    "url": "https://github.com/therebelrobot/HelpfulHint/issues"
   },
-  "homepage": "https://github.com/therebelrobot/BabyHint",
+  "homepage": "https://github.com/therebelrobot/HelpfulHint",
   "devDependencies": {
     "async": "^0.9.0",
     "chai": "^2.2.0",
