@@ -1,23 +1,6 @@
 Copyright (c) 2014 Khan Academy
 
 All of the code in this repository is under the MIT license, given below.
-The images used in this repository have the following licenses:
-
-Avatars:
-Restricted - You are not permitted to use these images at this time.
-
-Creatures:
-Creative Commons Attribution-NonCommercial - https://creativecommons.org/licenses/by-nc/3.0/us/
-
-Cute:
-Creative Commons Attribution-NonCommercial
-'Planet Cute' art by Daniel Cook (Lostgarden.com)
-http://lostgarden.com/2007/05/dancs-miraculously-flexible-game.html
-
-Space:
-Creative Commons Attribution-NonCommercial
-'Space Cute' art by Daniel Cook (Lostgarden.com)
-http://lostgarden.com/2007/03/spacecute-prototyping-challenge.html
 
 ============================================================
 
