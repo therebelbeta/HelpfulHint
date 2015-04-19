@@ -1,6 +1,6 @@
 {
   "name": "helpfulhint",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "HelpfulHint does a line-by-line check for common beginner programming mistakes, such as misspelling, missing spaces, missing commas, etc. It is used in conjunction with JSHINT to report errors to the user.",
   "main": "dist/helpfulhint.js",
   "bin": "dist/cli.js",
